@@ -2,6 +2,9 @@ lockfileVersion: 5.4
 
 importers:
 
+  .:
+    specifiers: {}
+
   packages/solid-contextmenu:
     specifiers:
       '@types/node': ^18.7.8
@@ -25,6 +28,21 @@ importers:
       typescript: 4.7.4
       vite: 3.0.9_sass@1.54.5
       vite-plugin-dts: 1.4.1_vite@3.0.9
+      vite-plugin-solid: 2.3.0_solid-js@1.4.8+vite@3.0.9
+
+  sites/site:
+    specifiers:
+      solid-contextmenu: workspace:*
+      solid-js: ^1.4.8
+      typescript: ^4.7.4
+      vite: ^3.0.9
+      vite-plugin-solid: ^2.3.0
+    dependencies:
+      solid-contextmenu: link:../../packages/solid-contextmenu
+      solid-js: 1.4.8
+    devDependencies:
+      typescript: 4.7.4
+      vite: 3.0.9
       vite-plugin-solid: 2.3.0_solid-js@1.4.8+vite@3.0.9
 
 packages:
@@ -1283,7 +1301,6 @@ packages:
 
   /solid-js/1.4.8:
     resolution: {integrity: sha512-XErZdnnYYXF7OwGSUAPcua2y5/ELB/c53zFCpWiEGqxTNoH1iQghzI8EsHJXk06sNn+Z/TGhb8bPDNNGSgimag==}
-    dev: true
 
   /solid-refresh/0.4.1_solid-js@1.4.8:
     resolution: {integrity: sha512-v3tD/OXQcUyXLrWjPW1dXZyeWwP7/+GQNs8YTL09GBq+5FguA6IejJWUvJDrLIA4M0ho9/5zK2e9n+uy+4488g==}
@@ -1445,6 +1462,33 @@ packages:
       vite: 3.0.9_sass@1.54.5
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /vite/3.0.9:
+    resolution: {integrity: sha512-waYABTM+G6DBTCpYAxvevpG50UOlZuynR0ckTK5PawNVt7ebX6X7wNXHaGIO6wYYFXSM7/WcuFuO2QzhBB6aMw==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    hasBin: true
+    peerDependencies:
+      less: '*'
+      sass: '*'
+      stylus: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      less:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      terser:
+        optional: true
+    dependencies:
+      esbuild: 0.14.54
+      postcss: 8.4.16
+      resolve: 1.22.1
+      rollup: 2.77.3
+    optionalDependencies:
+      fsevents: 2.3.2
     dev: true
 
   /vite/3.0.9_sass@1.54.5:

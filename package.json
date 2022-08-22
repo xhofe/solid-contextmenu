@@ -8,7 +8,8 @@
     "site": "pnpm --filter=site dev",
     "site:build": "pnpm --filter=site build",
     "build": "pnpm --filter=solid-contextmenu build",
-    "dev": "pnpm --filter=solid-contextmenu dev"
+    "dev": "pnpm --filter=solid-contextmenu dev",
+    "publish": "pnpm --filter=solid-contextmenu publish"
   },
   "keywords": [],
   "author": "Xhofe",
