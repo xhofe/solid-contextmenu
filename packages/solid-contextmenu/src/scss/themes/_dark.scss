@@ -1,0 +1,16 @@
+// Dark Theme ------------------------------------------------------- //
+.solid-contextmenu__theme--dark {
+  background-color: rgba(40, 40, 40, 0.98);
+
+  .solid-contextmenu__submenu {
+    background-color: rgba(40, 40, 40, 0.98);
+  }
+  .solid-contextmenu__separator {
+    background-color: #eee;
+  }
+  .solid-contextmenu__item {
+    &__content {
+      color: #ffffff;
+    }
+  }
+}

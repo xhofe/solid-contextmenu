@@ -1,0 +1,33 @@
+$delay: 0.3s;
+
+@keyframes solid-contextmenu__slideIn {
+  from {
+    opacity: 0;
+    transform: scale3d(1, 0.3, 1);
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes solid-contextmenu__slideOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: scale3d(1, 0.3, 1);
+  }
+}
+
+.solid-contextmenu-slide-enter-active {
+  transform-origin: top center;
+  animation: solid-contextmenu__slideIn $delay;
+}
+
+.solid-contextmenu-slide-exit-active {
+  transform-origin: top center;
+  animation: solid-contextmenu__slideOut $delay;
+}

@@ -1,0 +1,31 @@
+$delay: 0.3s;
+
+@keyframes solid-contextmenu__fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes solid-contextmenu__fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+.solid-contextmenu-fade-enter-active {
+  animation: solid-contextmenu__fadeIn $delay ease;
+}
+
+.solid-contextmenu-fade-exit-active {
+  animation: solid-contextmenu__fadeOut $delay ease;
+}

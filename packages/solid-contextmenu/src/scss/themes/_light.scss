@@ -1,0 +1,26 @@
+// Light Theme ------------------------------------------------------- //
+.solid-contextmenu__theme--light {
+  .solid-contextmenu__separator {
+    background-color: #eee;
+  }
+
+  .solid-contextmenu__submenu--is-open,
+  .solid-contextmenu__submenu--is-open > .solid-contextmenu__item__content {
+    color: #4393e6;
+    background-color: #e0eefd;
+  }
+
+  .solid-contextmenu__item {
+    &:not(.solid-contextmenu__item--disabled):hover
+      > .solid-contextmenu__item__content,
+    &:not(.solid-contextmenu__item--disabled):focus
+      > .solid-contextmenu__item__content {
+      color: #4393e6;
+      background-color: #e0eefd;
+    }
+
+    &__content {
+      color: #666;
+    }
+  }
+}
