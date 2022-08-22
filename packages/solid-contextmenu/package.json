@@ -1,17 +1,17 @@
 {
-  "name": "solid-lib",
+  "name": "solid-contextmenu",
   "version": "0.0.0",
   "description": "",
   "type": "module",
   "files": [
     "dist"
   ],
-  "main": "./dist/solid-lib.umd.cjs",
-  "module": "./dist/solid-lib.js",
+  "main": "./dist/solid-contextmenu.umd.cjs",
+  "module": "./dist/solid-contextmenu.js",
   "exports": {
     ".": {
-      "import": "./dist/solid-lib.js",
-      "require": "./dist/solid-lib.umd.cjs"
+      "import": "./dist/solid-contextmenu.js",
+      "require": "./dist/solid-contextmenu.umd.cjs"
     }
   },
   "types": "./dist/index.d.ts",

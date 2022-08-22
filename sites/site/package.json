@@ -16,6 +16,6 @@
   },
   "dependencies": {
     "solid-js": "^1.4.8",
-    "solid-lib": "workspace:*"
+    "solid-contextmenu": "workspace:*"
   }
 }

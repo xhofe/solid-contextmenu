@@ -15,7 +15,7 @@ export default defineConfig({
         ? {
             entry: resolve(__dirname, "src/index.tsx"),
             name: "SolidLib",
-            fileName: "solid-lib",
+            fileName: "solid-contextmenu",
           }
         : undefined,
     rollupOptions: {

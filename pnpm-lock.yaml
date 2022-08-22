@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 importers:
 
-  packages/solid-lib:
+  packages/solid-contextmenu:
     specifiers:
       '@types/node': ^18.7.8
       solid-js: ^1.4.8
@@ -22,13 +22,13 @@ importers:
   sites/site:
     specifiers:
       solid-js: ^1.4.8
-      solid-lib: workspace:*
+      solid-contextmenu: workspace:*
       typescript: ^4.7.4
       vite: ^3.0.9
       vite-plugin-solid: ^2.3.0
     dependencies:
       solid-js: 1.4.8
-      solid-lib: link:../../packages/solid-lib
+      solid-contextmenu: link:../../packages/solid-contextmenu
     devDependencies:
       typescript: 4.7.4
       vite: 3.0.9
