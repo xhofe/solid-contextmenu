@@ -1,0 +1,16 @@
+{
+  "name": "solidjs-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "site": "pnpm --filter=site dev",
+    "site:build": "pnpm --filter=site build",
+    "build": "pnpm --filter=solid-lib build",
+    "dev": "pnpm --filter=solid-lib dev"
+  },
+  "keywords": [],
+  "author": "Xhofe",
+  "license": "ISC"
+}
