@@ -1,7 +1,28 @@
 {
   "name": "solid-contextmenu",
-  "version": "0.0.1-alpha.1",
-  "description": "",
+  "version": "0.0.0",
+  "description": "Add contextmenu to your solid app with ease",
+  "keywords": [
+    "solid",
+    "context menu",
+    "solid-component",
+    "menu",
+    "solid-contextmenu",
+    "popup"
+  ],
+  "author": {
+    "name": "Noah Hsu",
+    "email": "i@nn.ci",
+    "url": "https://nn.ci"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xhofe/solid-contextmenu.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Xhofe/solid-contextmenu/issues"
+  },
   "type": "module",
   "files": [
     "dist"
@@ -22,7 +43,6 @@
     "build": "vite build",
     "serve": "vite preview"
   },
-  "license": "MIT",
   "devDependencies": {
     "@types/node": "^18.7.8",
     "sass": "^1.54.5",

@@ -42,7 +42,11 @@ export const Item = (props: ItemProps) => {
   };
   return (
     <Show when={!isHidden()}>
-      <div {...others} class={clsx(STYLE.item)} onClick={handleClick}>
+      <div
+        {...others}
+        class={clsx(STYLE.item, { [STYLE.itemDisabled]: isDisabled() })}
+        onClick={handleClick}
+      >
         <div class={STYLE.itemContent}>{local.children}</div>
       </div>
     </Show>

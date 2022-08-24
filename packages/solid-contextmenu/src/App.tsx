@@ -15,6 +15,7 @@ const App: Component = () => {
         <Item>⚡ Beautiful</Item>
         <Item>😊 Easy use</Item>
         <Item>💕 Built with heart</Item>
+        <Item disabled>❌ Disabled</Item>
       </Menu>
     </div>
   );
