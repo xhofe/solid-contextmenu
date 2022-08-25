@@ -1,4 +1,5 @@
 import {
+  createMemo,
   createSignal,
   mergeProps,
   onCleanup,
@@ -70,16 +71,24 @@ export const Menu = (props: MenuProps) => {
     bus.off("hideAll");
   });
 
-  const animation = () => {
-    if (!local.animation) {
-      return "";
+  const animation = createMemo(() => {
+    let ans = "";
+    if (local.animation) {
+      ans = `solid-contextmenu-${local.animation}`;
     }
-    return `solid-contextmenu-${local.animation}`;
-  };
+    console.log(ans);
+    return ans;
+  });
+  const animationClass = createMemo(() => {
+    return {
+      enterActiveClass: animation() + "-enter-active",
+      exitActiveClass: animation() + "-exit-active",
+    };
+  });
   return (
     <MenuContext.Provider value={contextValue}>
       <Portal>
-        <Transition name={animation()}>
+        <Transition {...animationClass()}>
           <Show when={shown()}>
             <div
               {...others}
