@@ -4,12 +4,14 @@ import {
   createSignal,
   JSX,
   mergeProps,
+  onCleanup,
   Show,
   splitProps,
 } from "solid-js";
 import { useMenu } from "../context";
 import { STYLE, BooleanPredicate, Pos, Size } from "..";
 import { getPredicateValue } from "../utils";
+import { bus } from "../bus";
 
 export interface LocalSubMenuProps {
   label: JSX.Element;
@@ -37,7 +39,7 @@ export const Submenu = (props: SubMenuProps) => {
     },
     local
   );
-  const { props: showProps } = useMenu();
+  const { props: showProps, id: menuId } = useMenu();
   const handlerParams = createMemo(() => ({
     props: showProps(),
   }));
@@ -74,12 +76,21 @@ export const Submenu = (props: SubMenuProps) => {
       }
     }
     setPos({ x, y });
+    console.log(pos());
   };
   const [shown, setShown] = createSignal(false);
   const show = () => {
     setShown(true);
     updatePos();
   };
+  bus.on("hide", (id) => {
+    if (id === menuId) {
+      setShown(false);
+    }
+  });
+  onCleanup(() => {
+    bus.off("hide");
+  });
   return (
     <Show when={!isHidden()}>
       <div

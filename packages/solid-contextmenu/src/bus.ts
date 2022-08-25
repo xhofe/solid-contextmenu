@@ -1,9 +1,10 @@
 import mitt from "mitt";
-import { ShowContextMenuParams } from ".";
+import { ShowContextMenuParams, MenuId } from ".";
 
 type Events = {
   show: ShowContextMenuParams;
   hideAll: void;
+  hide: MenuId;
 };
 
 export const bus = mitt<Events>();

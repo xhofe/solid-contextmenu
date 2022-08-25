@@ -85,18 +85,21 @@ export const Menu = (props: MenuProps) => {
         )
     );
   });
-
+  const hide = () => {
+    bus.emit("hide", local.id);
+    setShown(false);
+  };
   const contextValue = mergeProps(
     {
       shown: shown,
       animation: "scale",
-      hide: () => setShown(false),
+      hide: hide,
       props: showProps,
     },
     local
   );
   bus.on("hideAll", () => {
-    setShown(false);
+    hide();
   });
 
   onCleanup(() => {
@@ -133,7 +136,7 @@ export const Menu = (props: MenuProps) => {
                 top: pos().y + "px",
               }}
               // @ts-ignore
-              use:clickOutside={() => setShown(false)}
+              use:clickOutside={hide()}
               ref={el!}
             />
           </Show>
