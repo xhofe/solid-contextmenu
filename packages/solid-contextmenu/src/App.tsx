@@ -1,11 +1,13 @@
 import { Component, createSignal, For } from "solid-js";
 import { Menu, useContextMenu, Item, Separator, animation, Submenu } from ".";
 
+const MENU_ID = 1;
+
 const App: Component = () => {
   const [_animation, setAnimation] = createSignal(animation.scale);
   const [_theme, setTheme] = createSignal<"light" | "dark">("light");
 
-  const { show } = useContextMenu({ id: "1", props: "lala" });
+  const { show } = useContextMenu({ id: MENU_ID, props: "lala" });
   return (
     <div
       style={{
@@ -50,7 +52,7 @@ const App: Component = () => {
           }}
         </For>
       </select>
-      <Menu id="1" animation={_animation()} theme={_theme()}>
+      <Menu id={MENU_ID} animation={_animation()} theme={_theme()}>
         <Item>⚡ Beautiful</Item>
         <Item>😊 Easy use</Item>
         <Separator />

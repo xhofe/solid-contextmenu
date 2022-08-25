@@ -11,35 +11,39 @@ pnpm add solid-contextmenu
 ## Usage
 
 ```tsx
-import { Menu, Item, useContextMenu } from "solid-contextmenu";
-import "solid-contextmenu/dist/style.css";
+import { Component, createSignal, For } from "solid-js";
+import { Menu, useContextMenu, Item, Separator, Submenu } from ".";
 
-const MENU_ID = "unique-id";
-const App = () => {
-  const { show } = useContextMenu({ id: MENU_ID, props: "lala" });
+const App: Component = () => {
+  const { show } = useContextMenu({ id: "1", props: "lala" });
   return (
-    <>
-      <div
-        onContextMenu={(e) => {
-          show(e, { props: "here will cover" });
-        }}
-      >
-        right click here
-      </div>
-      <Menu id={MENU_ID} animation="scale" theme="dark">
-        <Item
-          data="balabala"
-          onClick={({ event, props, data }) => {
-            console.log(event, props, data);
-          }}
-        >
-          ⚡ Beautiful
-        </Item>
+    <div
+      style={{
+        height: "100vh",
+        display: "flex",
+        "flex-direction": "column",
+        "justify-content": "center",
+        "align-items": "center",
+        gap: "0.5rem",
+      }}
+      onContextMenu={(e) => {
+        show(e, { props: 1 });
+      }}
+    >
+      <h4>right click</h4>
+      <Menu id="1" animation={_animation()} theme={_theme()}>
+        <Item>⚡ Beautiful</Item>
         <Item>😊 Easy use</Item>
+        <Separator />
         <Item>💕 Built with heart</Item>
+        <Submenu label="▶️ submenu">
+          <Item>👋 Hello</Item>
+          <Item>😀 Hello</Item>
+          <Item>🤝 你好</Item>
+        </Submenu>
         <Item disabled>❌ Disabled</Item>
       </Menu>
-    </>
+    </div>
   );
 };
 ```
