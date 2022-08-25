@@ -1,5 +1,5 @@
 import { Component } from "solid-js";
-import { Menu, useContextMenu, Item } from ".";
+import { Menu, useContextMenu, Item, Separator } from ".";
 
 const App: Component = () => {
   const { show } = useContextMenu({ id: "1", props: "lala" });
@@ -11,10 +11,11 @@ const App: Component = () => {
       }}
     >
       right click
-      <Menu id="1" animation="scale" theme="dark">
+      <Menu id="1" animation="scale" theme="light">
         <Item>⚡ Beautiful</Item>
         <Item>😊 Easy use</Item>
         <Item>💕 Built with heart</Item>
+        <Separator />
         <Item disabled>❌ Disabled</Item>
       </Menu>
     </div>
