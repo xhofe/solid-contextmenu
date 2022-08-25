@@ -2,6 +2,8 @@
 
 Inspired by [react-contexify](https://github.com/fkhadra/react-contexify) but for [Solidjs](https://solidjs.com).
 
+[![release](https://github.com/Xhofe/solid-contextmenu/actions/workflows/release.yml/badge.svg)](https://github.com/Xhofe/solid-contextmenu/actions/workflows/release.yml) [![npm](https://img.shields.io/npm/dm/solid-contextmenu.svg)](https://www.npmjs.com/package/solid-contextmenu) [![npm](https://img.shields.io/npm/v/solid-contextmenu.svg)](https://www.npmjs.com/package/solid-contextmenu) [![license](https://img.shields.io/github/license/Xhofe/solid-contextmenu.svg)](https://github.com/Xhofe/solid-contextmenu/blob/main/LICENSE)
+
 ## Installation
 
 ```bash
@@ -14,8 +16,9 @@ pnpm add solid-contextmenu
 import { Component, createSignal, For } from "solid-js";
 import { Menu, useContextMenu, Item, Separator, Submenu } from ".";
 
+const MENU_ID = 1;
 const App: Component = () => {
-  const { show } = useContextMenu({ id: "1", props: "lala" });
+  const { show } = useContextMenu({ id: MENU_ID, props: "lala" });
   return (
     <div
       style={{
@@ -31,7 +34,7 @@ const App: Component = () => {
       }}
     >
       <h4>right click</h4>
-      <Menu id="1" animation={_animation()} theme={_theme()}>
+      <Menu id={MENU_ID} animation={_animation()} theme={_theme()}>
         <Item>⚡ Beautiful</Item>
         <Item>😊 Easy use</Item>
         <Separator />

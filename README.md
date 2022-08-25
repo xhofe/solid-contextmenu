@@ -2,6 +2,8 @@
 
 Inspired by [react-contexify](https://github.com/fkhadra/react-contexify) but for [Solidjs](https://solidjs.com).
 
+[![release](https://github.com/Xhofe/solid-contextmenu/actions/workflows/release.yml/badge.svg)](https://github.com/Xhofe/solid-contextmenu/actions/workflows/release.yml) [![npm](https://img.shields.io/npm/dm/solid-contextmenu.svg)](https://www.npmjs.com/package/solid-contextmenu) [![npm](https://img.shields.io/npm/v/solid-contextmenu.svg)](https://www.npmjs.com/package/solid-contextmenu) [![license](https://img.shields.io/github/license/Xhofe/solid-contextmenu.svg)](https://github.com/Xhofe/solid-contextmenu/blob/main/LICENSE)
+
 ## Installation
 
 ```bash
