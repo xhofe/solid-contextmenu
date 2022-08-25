@@ -1,8 +1,9 @@
 import { Component, createSignal, For } from "solid-js";
-import { Menu, useContextMenu, Item, Separator, animation } from ".";
+import { Menu, useContextMenu, Item, Separator, animation, Submenu } from ".";
 
 const App: Component = () => {
   const [_animation, setAnimation] = createSignal(animation.scale);
+  const [_theme, setTheme] = createSignal<"light" | "dark">("light");
 
   const { show } = useContextMenu({ id: "1", props: "lala" });
   return (
@@ -38,11 +39,27 @@ const App: Component = () => {
           }}
         </For>
       </select>
-      <Menu id="1" animation={_animation()} theme="light">
+      <select
+        onChange={(e) => {
+          setTheme(e.currentTarget.value as any);
+        }}
+      >
+        <For each={["light", "dark"]}>
+          {(item) => {
+            return <option value={item}>{item}</option>;
+          }}
+        </For>
+      </select>
+      <Menu id="1" animation={_animation()} theme={_theme()}>
         <Item>⚡ Beautiful</Item>
         <Item>😊 Easy use</Item>
-        <Item>💕 Built with heart</Item>
         <Separator />
+        <Item>💕 Built with heart</Item>
+        <Submenu label="▶️ submenu">
+          <Item>👋 Hello</Item>
+          <Item>😀 Hello</Item>
+          <Item>🤝 你好</Item>
+        </Submenu>
         <Item disabled>❌ Disabled</Item>
       </Menu>
     </div>

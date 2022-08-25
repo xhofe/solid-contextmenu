@@ -1,4 +1,5 @@
-import { Accessor, JSX } from "solid-js";
+import { Accessor } from "solid-js";
+import { LocalMenuProps } from ".";
 
 export type MenuId = string | number;
 
@@ -12,17 +13,6 @@ export interface Size {
 }
 
 export type TriggerEvent = MouseEvent;
-
-export type MenuProps = Omit<JSX.HTMLAttributes<HTMLDivElement>, "id"> &
-  LocalMenuProps;
-type LocalMenuProps = {
-  id: MenuId;
-  children?: JSX.Element | JSX.Element[];
-  theme?: "light" | "dark";
-  animation?: string | false;
-  onShown?: () => void;
-  onHidden?: () => void;
-};
 
 export type ShowContextMenuParams = {
   id: MenuId;
@@ -52,16 +42,3 @@ export type HandlerParams<Props = any, Data = any> = ItemParams<Props, Data> & {
   event: MouseEvent;
 };
 export type BooleanPredicate = boolean | ((args: ItemParams) => boolean);
-type LocalItemProps = {
-  children?: JSX.Element | JSX.Element[];
-  data?: any;
-  disabled?: BooleanPredicate;
-  hidden?: BooleanPredicate;
-  onClick?: (args: HandlerParams) => void;
-};
-
-export type ItemProps = Omit<
-  JSX.HTMLAttributes<HTMLDivElement>,
-  "hidden" | "disabled" | "onClick"
-> &
-  LocalItemProps;

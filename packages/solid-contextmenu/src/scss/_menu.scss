@@ -22,9 +22,9 @@
   }
 
   & &__submenu {
-    position: absolute;
+    position: fixed;
     /* negate padding */
-    top: -6px;
+    // top: -6px;
     pointer-events: none;
     transition: opacity 0.275s;
   }

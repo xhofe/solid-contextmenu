@@ -1,6 +1,7 @@
 import {
   createMemo,
   createSignal,
+  JSX,
   mergeProps,
   onCleanup,
   Show,
@@ -10,10 +11,42 @@ import { Portal } from "solid-js/web";
 import { Transition } from "solid-transition-group";
 import { bus } from "../bus";
 import { MenuContext } from "../context";
-import { STYLE, MenuProps, Pos } from "..";
-import { calPos } from "../utils";
+import { STYLE, Pos, MenuId, Size } from "..";
 import clsx from "clsx";
 import "../scss/main.scss";
+
+const calVal = (clickP: number, elS: number, boxS: number) => {
+  if (clickP + elS <= boxS) {
+    return clickP;
+  }
+  if (clickP < elS) {
+    return boxS - elS;
+    // return 0;
+  }
+  return clickP - elS;
+};
+const calPos = (clickPos: Pos, elSize: Size): Pos => {
+  const pageSize: Size = {
+    width: window.innerWidth,
+    height: window.innerHeight,
+  };
+  return {
+    x: calVal(clickPos.x, elSize.width, pageSize.width),
+    y: calVal(clickPos.y, elSize.height, pageSize.height),
+  };
+};
+
+export type LocalMenuProps = {
+  id: MenuId;
+  children?: JSX.Element;
+  theme?: "light" | "dark";
+  animation?: string | false;
+  onShown?: () => void;
+  onHidden?: () => void;
+};
+
+export type MenuProps = Omit<JSX.HTMLAttributes<HTMLDivElement>, "id"> &
+  LocalMenuProps;
 
 export const Menu = (props: MenuProps) => {
   const [local, others] = splitProps(props, [
