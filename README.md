@@ -10,6 +10,9 @@ Inspired by [react-contexify](https://github.com/fkhadra/react-contexify) but fo
 pnpm add solid-contextmenu
 ```
 
+## Demo
+<https://xhofe.github.io/solid-contextmenu>
+
 ## Usage
 
 ```tsx

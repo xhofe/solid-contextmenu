@@ -1,6 +1,9 @@
 name: release
 
-on: push
+on:
+  push:
+    tags:
+      - '*'
 
 jobs:
   release:
@@ -21,6 +24,10 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Copy README.md
+        run: |
+          cp ./README.md ./packages/solid-contextmenu/README.md
+
       - name: Change version
         run: |
           version=$(git describe --abbrev=0 --tags)
@@ -39,14 +46,12 @@ jobs:
           pnpm build
 
       - name: Generate changelog
-        if: startsWith(github.ref, 'refs/tags/')
         run: |
           npx changelogithub # or changelogithub@0.12 if ensure the stable result
         env:
           GITHUB_TOKEN: ${{secrets.MY_TOKEN}}
 
       - name: Publish npm
-        if: startsWith(github.ref, 'refs/tags/')
         run: |
           echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
           cd ./packages/solid-contextmenu

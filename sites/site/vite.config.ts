@@ -9,4 +9,5 @@ export default defineConfig({
   build: {
     target: 'esnext',
   },
+  base: "/solid-contextmenu/"
 });

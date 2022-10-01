@@ -1,0 +1,43 @@
+name: deploy
+
+on:
+  push:
+    branches: [ 'main' ]
+
+jobs:
+  deploy:
+    strategy:
+      matrix:
+        platform: [ubuntu-latest]
+    name: Deploy
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v2.2.2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 7
+          run_install: true
+
+      - name: Build
+        run: |
+          pnpm build
+          pnpm i
+          pnpm site:build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.MY_TOKEN }}
+          publish_dir: sites/site/dist
