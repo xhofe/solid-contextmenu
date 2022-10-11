@@ -1,3 +1,7 @@
+<p>
+  <img width="100%" src="https://assets.solidjs.com/banner?project=solid-contextmenu" alt="solid-named-router">
+</p>
+
 # solid-contextmenu
 
 Inspired by [react-contexify](https://github.com/fkhadra/react-contexify) but for [Solidjs](https://solidjs.com).
