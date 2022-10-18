@@ -27,12 +27,12 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/solid-contextmenu.umd.cjs",
+  "main": "./dist/solid-contextmenu.cjs",
   "module": "./dist/solid-contextmenu.js",
   "exports": {
     ".": {
       "import": "./dist/solid-contextmenu.js",
-      "require": "./dist/solid-contextmenu.umd.cjs"
+      "require": "./dist/solid-contextmenu.cjs"
     },
     "./dist/style.css": "./dist/style.css"
   },
